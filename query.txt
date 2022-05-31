@@ -1,0 +1,18 @@
+
+create table Employee(
+    id serial primary key,
+    name varchar(255),
+    parent_id INT,
+    foreign key (parent_id)
+    references Employee (id)
+    on delete cascade
+    )
+    
+    
+    select 
+    e.id, 
+    e.name,
+    m.name 
+    from employee e
+    inner join employee m on m.id = e.parent_id
+    
